@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: episode2-deployment
+  labels:
+    app: episode2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: episode2
+  template:
+    metadata:
+      labels:
+        app: episode2
+    spec:
+      containers:
+      - name: frontend
+        image: khadijahmehmood/frontendep2:latest
+        ports:
+        - containerPort: 5001
+      - name: backend
+        image: khadijahmehmood/backendep2:latest
+        ports:
+        - containerPort: 3001
